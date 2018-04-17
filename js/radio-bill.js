@@ -1,12 +1,33 @@
-// get a reference to the sms or call radio buttons
+var callsTotal3 = 0;
+var smsTotal3 = 0;
+var totalBill3 = 0;
+var Select = document.querySelector('.billItemTypeRadio')
+console.log(Select);
+var radBtn = document.querySelector('.radioBillAddBtn')
 
-//get a reference to the add button
+var callTwo = document.querySelector('.callTotalTwo')
+var smsTwo = document.querySelector('.smsTotalTwo')
+var radioTotal = document.querySelector('.totalTwo')
 
-//create a variable that will keep track of the total bill
+function radioBillTotal(){
+  var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
 
-//add an event listener for when the add button is pressed
+  if (checkedRadioBtn){
+      var radBtn = checkedRadioBtn.value
+  }
+  var billItemTwo = Select.value.trim();
+  if ( billItemTwo === 'call') {
+    callsTotal3 += 2.75;
+    callTwo.innerHTML = callsTotal3.toFixed(2);
+  }
+  else if(billItemTwo === 'sms'){
+  smsTotal3 += 0.75;
+  smsTwo.innerHTML = smsTotal3.toFixed(2);
+  }
 
-//in the event listener get the value from the billItemTypeRadio radio buttons
-// * add the appropriate value to the running total
-// * add nothing for invalid values that is not 'call' or 'sms'.
-// * display the latest total on the screen
+    radioTotal.innerHTML = radioTotal.toFixed(2)
+    var radioTotal = callsTotal3 + smsTotal3
+    radioTotal.innerHTML = totalBill3.toFixed(2);
+
+}
+radBtn.addEventListener('click',radioBillTotal);
