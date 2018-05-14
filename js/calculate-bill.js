@@ -36,10 +36,14 @@ if (roundedBillTotal >= 20 )
 {
   billTotals.classList.add("warning");
 }
- if
+else if
 (roundedBillTotal >= 30 )
 {
   billTotals.classList.add("danger");
+}
+else (roundedBillTotal < 30)
+{
+  billTotals.ClassList.remove("danger, warning")
 }
 }
 

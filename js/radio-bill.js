@@ -15,19 +15,39 @@ function radioBillTotal(){
   if (checkedRadioBtn){
       var radBtn = checkedRadioBtn.value
   }
-  var billItemTwo = Select.value.trim();
+  var billItemTwo = radBtn;
   if ( billItemTwo === 'call') {
     callsTotal3 += 2.75;
-    callTwo.innerHTML = callsTotal3.toFixed(2);
+
   }
   else if(billItemTwo === 'sms'){
   smsTotal3 += 0.75;
-  smsTwo.innerHTML = smsTotal3.toFixed(2);
+
+  }
+    callTwo.innerHTML = callsTotal3.toFixed(2);
+    smsTwo.innerHTML = smsTotal3.toFixed(2);
+    //radioTotal.innerHTML = radioTotal.toFixed(2)
+    var totalBill = callsTotal3 + smsTotal3
+
+    radioTotal.innerHTML = totalBill.toFixed(2);
+
+
+
+  if (totalBill < 29){
+  radioTotal.classList.remove("warning")
+    radioTotal.classList.remove("danger")
+  }
+  else if (totalBill >= 50){
+    radioTotal.classList.remove("warning")
+    radioTotal.classList.add("danger")
+
+  }
+else if (totalBill >= 30){
+  radioTotal.classList.remove("danger")
+  radioTotal.classList.add("warning")
   }
 
-    radioTotal.innerHTML = radioTotal.toFixed(2)
-    var radioTotal = callsTotal3 + smsTotal3
-    radioTotal.innerHTML = totalBill3.toFixed(2);
+
 
 }
 radBtn.addEventListener('click',radioBillTotal);
