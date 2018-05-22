@@ -11,7 +11,7 @@ var criticalLevel = document.querySelector(".criticalLevelSetting");
 var warningLevel = document.querySelector(".warningLevelSetting ");
 
 //get a reference to the add button
-var addbtn = document.querySelector("button-primary addbtn");
+var addbtn = document.querySelector(".addbtn");
 
 //get a reference to the 'Update settings' button
 var settingsbtn = document.querySelector(".updateSettings");
@@ -29,11 +29,11 @@ var totals = 0;
 
 
 function update(){
-callSettings = parsefloat(callTotal.value)
-smsSettings = parsefloat(smsTotal.value)
-totalSettings = parsefloat(totaltotal.value)
-critical = parsefloat(criticalLevel.value)
-warning = parsefloat(warningLevel.value)
+callSettings = parseFloat(callTotal.value)
+smsSettings = parseFloat(smsTotal.value)
+totalSettings = parseFloat(totaltotal.value)
+critical = parseFloat(criticalLevel.value)
+warning = parseFloat(warningLevel.value)
 }
 
 function radioTotal(){
@@ -45,14 +45,14 @@ function radioTotal(){
 
     var Item = radBtn;
     if (Item === "call"){
-      calls += callTotal
+      calls += callSettings
     }
     else if (Item === 'sms') {
-    sms1 += smsTotal
+    sms1 += smsSettings
   }
     callTotal.innerHTML = calls.toFixed(2);
     smsTotal.innerHTML = sms1.toFixed(2);
-    var total = totaltotal
+
 var total = sms1 + calls
     totaltotal.innerHTML = total.toFixed(2);
 }
