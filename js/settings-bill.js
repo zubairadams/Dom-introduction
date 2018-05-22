@@ -11,7 +11,7 @@ var criticalLevel = document.querySelector(".criticalLevelSetting");
 var warningLevel = document.querySelector(".warningLevelSetting ");
 
 //get a reference to the add button
-var addBtn = document.querySelector("button-primary addbtn");
+var addbtn = document.querySelector("button-primary addbtn");
 
 //get a reference to the 'Update settings' button
 var settingsbtn = document.querySelector(".updateSettings");
@@ -63,7 +63,7 @@ var total = sms1 + calls
 settingsbtn.addEventListener('click',update)
 
 //add an event listener for when the add button is pressed
-addBtn.addEventListener('click',radioTotal)
+addbtn.addEventListener('click',radioTotal)
 
 //in the event listener get the value from the billItemTypeRadio radio buttons
 // * add the appropriate value to the call / sms total
