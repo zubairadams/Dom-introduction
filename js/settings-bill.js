@@ -25,15 +25,13 @@ var warning = 0;
 var callBalance = 0;
 var sms1 = 0;
 var totals = 0;
-
-var no = warning + critical
-
 function radioTotal(){
   var checkradiobtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
   var radBtn = checkradiobtn.value.trim();
   if (radBtn === 'call'){
       callBalance += callSettings;
-  }else if (radBtn === 'sms'){
+  }
+  if (radBtn === 'sms'){
       sms1 += smsSettings
   }
   callTotal.innerHTML = callBalance.toFixed(2);
@@ -42,22 +40,20 @@ function radioTotal(){
   totals = sms1 + callBalance
   totaltotal.innerHTML = totals.toFixed(2);
 
-// if (totals > no) {
-//   totaltotal.classList.remove("warning")
-//     totaltotal.classList.remove("danger")
-// }
-//   else
-if (totaltotal >= critical ){
-   totaltotal.classList.remove("warning")
-   totaltotal.classList.add("danger")
-
+ if (totaltotal >= critical ){
+    totaltotal.classList.remove("warning")
+    totaltotal.classList.add("danger")
+}
+else if (totals >= warning){
+totaltotal.classList.remove("danger")
+totaltotal.classList.add("warning")
 
 }
-  else if (totals >= warning){
-  totaltotal.classList.add("warning")
-  //  totaltotal.classList.remove("danger")
-  }
 
+if (totals >= critical){
+totaltotal = critical;
+
+}
 }
 function update(){
   var newCallCost = callCost.value;
