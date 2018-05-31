@@ -53,17 +53,19 @@ function radioTotal(){
   totaltotalElem.innerHTML = totals.toFixed(2);
 
 
- if (totaltotalElem >= critical ){
-    totaltotal.classList.remove("warning")
-    totaltotal.classList.add("danger")
+console.log(totals);
+ if (totals < warning ){
+    totaltotalElem.classList.remove("warning")
+    totaltotalElem.classList.remove("warning")
   }
-  else if (totals >= warning){
-  totaltotalElem.classList.add("warning")
+  else if (totals >= warning && totals < critical){
+    totaltotalElem.classList.remove("danger")
+    totaltotalElem.classList.add("warning")
 
   }
-  else {
-    totaltotalElem.classList.remove("danger")
+  else if(totals >= critical) {
     totaltotalElem.classList.remove("warning")
+    totaltotalElem.classList.add("danger")
   }
 }
 
